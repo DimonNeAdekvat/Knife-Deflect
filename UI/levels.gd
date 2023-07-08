@@ -2,7 +2,7 @@ extends Control
 
 @export var go_back : PackedScene
 @export var levels : Array[PackedScene]
-@onready var grid = $Grid
+@onready var grid = $MarginContainer/Grid
 
 var offset : int = 0
 

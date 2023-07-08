@@ -23,7 +23,7 @@ window/size/viewport_height=800
 [importer_defaults]
 
 texture={
-"svg/scale": 3.0
+"svg/scale": 2.0
 }
 
 [rendering]

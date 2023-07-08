@@ -1,20 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkri62q20y46i"]
+[gd_scene load_steps=5 format=3 uid="uid://dkri62q20y46i"]
 
+[ext_resource type="Theme" uid="uid://b5sam0xashck5" path="res://UI/ui_default.tres" id="1_fq1b4"]
 [ext_resource type="Script" path="res://UI/GameMode.gd" id="1_m2oiw"]
+[ext_resource type="Texture2D" uid="uid://c311p8qlyy43p" path="res://Assets/background.png" id="2_4w1oh"]
+[ext_resource type="Script" path="res://UI/SettingsPanel.gd" id="4_t5ung"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_fq1b4")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4w1oh")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,51 +31,57 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GameName" type="Label" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="GameName" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Knife
 Deflect"
 
-[node name="GameMode" type="PanelContainer" parent="VBoxContainer"]
+[node name="GameMode" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 script = ExtResource("1_m2oiw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/GameMode"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/GameMode"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/GameMode/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GameMode/VBoxContainer"]
 layout_mode = 2
 text = "Game mode"
 horizontal_alignment = 1
 
-[node name="Story" type="Button" parent="VBoxContainer/GameMode/VBoxContainer"]
+[node name="Story" type="Button" parent="MarginContainer/VBoxContainer/GameMode/VBoxContainer"]
 layout_mode = 2
-text = "Story"
+text = "Start"
 
-[node name="Levels" type="Button" parent="VBoxContainer/GameMode/VBoxContainer"]
+[node name="Levels" type="Button" parent="MarginContainer/VBoxContainer/GameMode/VBoxContainer"]
 layout_mode = 2
 text = "Levels
 "
 
-[node name="Endless" type="Button" parent="VBoxContainer/GameMode/VBoxContainer"]
+[node name="Endless" type="Button" parent="MarginContainer/VBoxContainer/GameMode/VBoxContainer"]
 layout_mode = 2
 text = "Endless
 "
 
-[node name="PanelSettings" type="PanelContainer" parent="VBoxContainer"]
+[node name="Settings" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("4_t5ung")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Settings"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelSettings"]
-layout_mode = 2
-
-[node name="Settings" type="Button" parent="VBoxContainer/PanelSettings/VBoxContainer"]
+[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer/Settings/VBoxContainer"]
 layout_mode = 2
 text = "Settings"
 
-[node name="Credits" type="Button" parent="VBoxContainer/PanelSettings/VBoxContainer"]
+[node name="Credits" type="Button" parent="MarginContainer/VBoxContainer/Settings/VBoxContainer"]
 layout_mode = 2
 text = "Credits"
 
-[connection signal="pressed" from="VBoxContainer/GameMode/VBoxContainer/Levels" to="VBoxContainer/GameMode" method="_on_levels_pressed"]
-[connection signal="pressed" from="VBoxContainer/GameMode/VBoxContainer/Endless" to="VBoxContainer/GameMode" method="_on_endless_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GameMode/VBoxContainer/Levels" to="MarginContainer/VBoxContainer/GameMode" method="_on_levels_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GameMode/VBoxContainer/Endless" to="MarginContainer/VBoxContainer/GameMode" method="_on_endless_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Settings/VBoxContainer/Settings" to="MarginContainer/VBoxContainer/Settings" method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Settings/VBoxContainer/Credits" to="MarginContainer/VBoxContainer/Settings" method="_on_credits_pressed"]
