@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://y4y6lkpfp3pe"]
+
+[ext_resource type="Texture2D" uid="uid://c311p8qlyy43p" path="res://Assets/background.png" id="1_6jf5q"]
+[ext_resource type="Theme" uid="uid://b5sam0xashck5" path="res://UI/ui_default.tres" id="1_fe2rg"]
+[ext_resource type="Script" path="res://UI/settings.gd" id="2_0dde7"]
+[ext_resource type="Texture2D" uid="uid://yxxwveow0ew7" path="res://feathericons/home.svg" id="4_66dnj"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fe2rg")
+script = ExtResource("2_0dde7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6jf5q")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "nothing to see here for now"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Home" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+icon = ExtResource("4_66dnj")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Home" to="." method="_on_home_pressed"]

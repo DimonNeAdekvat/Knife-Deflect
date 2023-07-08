@@ -1,0 +1,150 @@
+[gd_scene load_steps=6 format=3 uid="uid://dibyiuyx7klgh"]
+
+[ext_resource type="Theme" uid="uid://b5sam0xashck5" path="res://UI/ui_default.tres" id="1_52yh2"]
+[ext_resource type="Texture2D" uid="uid://c311p8qlyy43p" path="res://Assets/background.png" id="2_hoabk"]
+[ext_resource type="Texture2D" uid="uid://bdujriwg3tg24" path="res://feathericons/external-link.svg" id="3_4x3ur"]
+[ext_resource type="Script" path="res://UI/credits.gd" id="3_in01b"]
+[ext_resource type="Texture2D" uid="uid://yxxwveow0ew7" path="res://feathericons/home.svg" id="4_wtt31"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_52yh2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hoabk")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+script = ExtResource("3_in01b")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "This abomination was developed by"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DimonNeAdekvat" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "DimonNeAdekvat
+(aka Snail with tea) :"
+
+[node name="LinksD" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="itch" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/LinksD"]
+layout_mode = 2
+text = "itch.io"
+icon = ExtResource("3_4x3ur")
+
+[node name="github" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/LinksD"]
+layout_mode = 2
+text = "github.com"
+icon = ExtResource("3_4x3ur")
+
+[node name="Micael006" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Micael006:"
+
+[node name="LinksM" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="itch" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/LinksM"]
+layout_mode = 2
+text = "itch.io"
+icon = ExtResource("3_4x3ur")
+
+[node name="github" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/LinksM"]
+layout_mode = 2
+text = "github.com"
+icon = ExtResource("3_4x3ur")
+
+[node name="What" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "GKP228:"
+
+[node name="LinksG" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="itch" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/LinksG"]
+layout_mode = 2
+text = "itch.io"
+icon = ExtResource("3_4x3ur")
+
+[node name="github" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/LinksG"]
+layout_mode = 2
+text = "github.com"
+icon = ExtResource("3_4x3ur")
+
+[node name="ColaMen" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "ColaMen:"
+
+[node name="LinksC" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="itch" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/LinksC"]
+layout_mode = 2
+text = "itch.io"
+icon = ExtResource("3_4x3ur")
+
+[node name="github" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/LinksC"]
+layout_mode = 2
+text = "github.com"
+icon = ExtResource("3_4x3ur")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Home" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("4_wtt31")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/LinksD/itch" to="MarginContainer/VBoxContainer" method="_on_D_itch_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/LinksD/github" to="MarginContainer/VBoxContainer" method="_on_D_github_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/LinksM/itch" to="MarginContainer/VBoxContainer" method="_on_itch_M_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/LinksM/github" to="MarginContainer/VBoxContainer" method="_on_M_github_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/LinksG/itch" to="MarginContainer/VBoxContainer" method="_on_G_itch_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/LinksG/github" to="MarginContainer/VBoxContainer" method="_on_G_github_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/LinksC/itch" to="MarginContainer/VBoxContainer" method="_on_C_itch_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/LinksC/github" to="MarginContainer/VBoxContainer" method="_on_C_github_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Home" to="MarginContainer/VBoxContainer" method="_on_home_pressed"]
