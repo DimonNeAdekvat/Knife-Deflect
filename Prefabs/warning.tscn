@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://caukhrcn8ou56"]
+
+[ext_resource type="Texture2D" uid="uid://iv1vaarftdqk" path="res://Assets/warning.png" id="1_nu04h"]
+[ext_resource type="Script" path="res://Scripts/Warning.gd" id="2_yw8uf"]
+
+[node name="Warning" type="Sprite2D"]
+z_index = 10
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_nu04h")
+script = ExtResource("2_yw8uf")

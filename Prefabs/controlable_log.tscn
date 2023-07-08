@@ -6,14 +6,13 @@
 [ext_resource type="Script" path="res://Components/hitbox_component.gd" id="4_48ujn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_revv6"]
-radius = 100.0
+radius = 65.0
 
 [node name="ControlableLog" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_6f3ik")
-spin_velocity = 80.0
-angular_damp = 10.0
-max_angular_vel = 180.0
+spin_velocity = 160.0
+angular_damp = 20.0
 
 [node name="Boss-orange" type="Sprite2D" parent="."]
 z_index = 1
@@ -33,4 +32,5 @@ script = ExtResource("4_48ujn")
 health = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+z_index = 1
 shape = SubResource("CircleShape2D_revv6")
