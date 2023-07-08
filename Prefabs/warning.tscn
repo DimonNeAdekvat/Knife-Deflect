@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://caukhrcn8ou56"]
+
+[ext_resource type="Texture2D" uid="uid://iv1vaarftdqk" path="res://Assets/warning.png" id="1_nu04h"]
+[ext_resource type="Script" path="res://Scripts/Warning.gd" id="2_yw8uf"]
+
+[node name="Warning" type="Sprite2D"]
+z_index = 10
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_nu04h")
+offset = Vector2(0, -128)
+script = ExtResource("2_yw8uf")
+show_rad = 340.0
+color_s = Color(1, 1, 0, 1)

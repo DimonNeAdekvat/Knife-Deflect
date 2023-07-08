@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@export var speed : float = 100.0
+@export var speed : float = 150.0
 
 var velocity : Vector2 = Vector2()
 
@@ -11,10 +11,11 @@ func _ready():
 func _process(delta):
 	position += velocity * delta
 
-
 func _on_damagebox_entered(area):
 	if area is HitboxComponent : 
 		call_deferred("rebase",area)
+	elif area is DamageboxComponent:
+		queue_free()
 
 func rebase(area : Node2D):
 	$DamageboxComponent.set_deferred("monitoring",false)

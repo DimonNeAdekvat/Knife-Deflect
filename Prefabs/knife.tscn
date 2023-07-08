@@ -2,24 +2,23 @@
 
 [ext_resource type="Texture2D" uid="uid://dot48u7d4nui" path="res://Assets/weapon_sprite.png" id="1_mpagp"]
 [ext_resource type="Script" path="res://Components/damagebox_component.gd" id="2_0uex3"]
-[ext_resource type="Script" path="res://Prefabs/knife.gd" id="2_i87b4"]
+[ext_resource type="Script" path="res://Scripts/knife.gd" id="2_iy02v"]
 [ext_resource type="Script" path="res://Components/damage_component.gd" id="3_t471e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f24wh"]
 radius = 16.0
-height = 208.0
+height = 248.0
 
 [node name="Knife" type="Sprite2D"]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_mpagp")
-script = ExtResource("2_i87b4")
+script = ExtResource("2_iy02v")
 
 [node name="DamageboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("damage_component")]
 script = ExtResource("2_0uex3")
 damage_component = NodePath("../DamageComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageboxComponent"]
-position = Vector2(0, 20)
 shape = SubResource("CapsuleShape2D_f24wh")
 
 [node name="DamageComponent" type="Node" parent="."]
