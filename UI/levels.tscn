@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhgqt7x7sb888"]
+
+[ext_resource type="Script" path="res://UI/levels.gd" id="1_mutc8"]
+[ext_resource type="PackedScene" uid="uid://dkri62q20y46i" path="res://UI/main_menu.tscn" id="2_g3jyf"]
+[ext_resource type="PackedScene" uid="uid://comi8lkcrf2qe" path="res://Scenes/main_scene.tscn" id="3_6kslp"]
+
+[node name="Levels" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+script = ExtResource("1_mutc8")
+go_back = ExtResource("2_g3jyf")
+levels = Array[PackedScene]([ExtResource("3_6kslp")])
+
+[node name="Grid" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
