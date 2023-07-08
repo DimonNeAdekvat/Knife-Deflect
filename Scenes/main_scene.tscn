@@ -15,5 +15,6 @@ texture = ExtResource("1_n6q3i")
 angular_damp = 40.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 120)
 
 [node name="KnifeSpawner" parent="." instance=ExtResource("4_x6dgc")]
