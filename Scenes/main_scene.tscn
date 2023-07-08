@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://comi8lkcrf2qe"]
+
+[ext_resource type="Texture2D" uid="uid://c311p8qlyy43p" path="res://Assets/background.png" id="1_n6q3i"]
+[ext_resource type="PackedScene" uid="uid://bg358owmjt0nd" path="res://Scenes/controlable_log.tscn" id="4_8nmcl"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(235, 414)
+scale = Vector2(1.905, 1.905)
+texture = ExtResource("1_n6q3i")
+
+[node name="ControlableLog" parent="." instance=ExtResource("4_8nmcl")]
