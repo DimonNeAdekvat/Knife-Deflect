@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg358owmjt0nd"]
+
+[ext_resource type="Script" path="res://Scripts/ControlableLog.gd" id="1_6f3ik"]
+[ext_resource type="Texture2D" uid="uid://c3tsxu6qgpmck" path="res://Assets/boss-Orange.png" id="2_kia1x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_revv6"]
+radius = 100.0
+
+[node name="ControlableLog" type="CharacterBody2D"]
+script = ExtResource("1_6f3ik")
+
+[node name="Boss-orange" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_kia1x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_revv6")

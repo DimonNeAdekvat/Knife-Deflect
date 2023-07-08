@@ -12,5 +12,5 @@
 [Для звуков](https://www.drpetter.se/project_sfxr.html)  
 [Для спрайтов](https://opengameart.org/)  
 [**Генератор спрайтов ближнего боя**](https://rgsdev-weapon-generator.netlify.app/)  
-Общийвид главного игрового цикла  
+Общий вид главного игрового цикла  
 ![](./overall_layout.png)
