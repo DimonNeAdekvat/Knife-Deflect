@@ -7,7 +7,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f24wh"]
 radius = 16.0
-height = 216.0
+height = 208.0
 
 [node name="Knife" type="Sprite2D"]
 scale = Vector2(0.25, 0.25)
@@ -19,7 +19,7 @@ script = ExtResource("2_0uex3")
 damage_component = NodePath("../DamageComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageboxComponent"]
-position = Vector2(0, 16)
+position = Vector2(0, 20)
 shape = SubResource("CapsuleShape2D_f24wh")
 
 [node name="DamageComponent" type="Node" parent="."]

@@ -8,11 +8,11 @@ class_name Log
 
 var rotat_vel : float = 0.0 :
 	set(val):
-		var sign = signf(val)
+		var m_sign = signf(val)
 		var absl = abs(val)
 		if absl > max_angular_vel:
 			absl = max_angular_vel
-		rotat_vel = sign * absl
+		rotat_vel = m_sign * absl
 
 func _physics_process(delta):
 	rotation_degrees += rotat_vel * delta
