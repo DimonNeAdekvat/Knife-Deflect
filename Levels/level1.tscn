@@ -26,6 +26,10 @@ texture = ExtResource("1_ttw4w")
 
 [node name="ControlableLog" parent="." instance=ExtResource("2_s23q5")]
 
+[node name="HealthComponent" parent="ControlableLog" index="2"]
+max_health = 10.0
+cur_health = 10.0
+
 [node name="Axe" parent="ControlableLog" instance=ExtResource("4_7amhu")]
 position = Vector2(3, -113)
 rotation = 1.74533
@@ -37,7 +41,9 @@ monitoring = false
 
 [node name="KnifeSpawner" parent="." instance=ExtResource("3_7qehu")]
 knives = Array[PackedScene]([ExtResource("6_wmavp"), ExtResource("4_pkscq"), ExtResource("6_emabd"), ExtResource("6_07jcx"), ExtResource("6_iiakj"), ExtResource("6_4i1hi"), ExtResource("6_c2d6i"), ExtResource("6_bpaxc"), ExtResource("6_y8onp"), ExtResource("6_qri2c"), ExtResource("6_o0n02")])
-positions = Array[Vector2]([Vector2(0, 1)])
+positions = Array[Vector2]([Vector2(0.5, 0.5)])
 types = Array[int]([0])
+spawn_time = 2.0
 
+[editable path="ControlableLog"]
 [editable path="ControlableLog/Axe"]

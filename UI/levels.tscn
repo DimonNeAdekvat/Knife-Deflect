@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhgqt7x7sb888"]
+[gd_scene load_steps=9 format=3 uid="uid://bhgqt7x7sb888"]
 
 [ext_resource type="Theme" uid="uid://b5sam0xashck5" path="res://UI/ui_default.tres" id="1_jqpsc"]
 [ext_resource type="Script" path="res://UI/levels.gd" id="1_mutc8"]
 [ext_resource type="PackedScene" uid="uid://dkri62q20y46i" path="res://UI/main_menu.tscn" id="2_g3jyf"]
-[ext_resource type="PackedScene" uid="uid://bmbo0fggcsr5e" path="res://UI/level1.tscn" id="4_mrjmj"]
+[ext_resource type="PackedScene" uid="uid://bmbo0fggcsr5e" path="res://Levels/level1.tscn" id="4_mrjmj"]
 [ext_resource type="Texture2D" uid="uid://c311p8qlyy43p" path="res://Assets/background.png" id="5_2lo4r"]
+[ext_resource type="PackedScene" uid="uid://bayc8rm5vuoec" path="res://Levels/level2.tscn" id="5_bds0f"]
+[ext_resource type="PackedScene" uid="uid://bi7w8w4b6y2vb" path="res://Levels/level3.tscn" id="6_umiks"]
+[ext_resource type="PackedScene" uid="uid://mh08aaji7ak1" path="res://Levels/level4.tscn" id="7_w6kkq"]
 
 [node name="Levels" type="Control"]
 layout_mode = 3
@@ -16,9 +19,7 @@ grow_vertical = 2
 theme = ExtResource("1_jqpsc")
 script = ExtResource("1_mutc8")
 go_back = ExtResource("2_g3jyf")
-
-levels = Array[PackedScene]([ExtResource("4_mrjmj")])
-
+levels = Array[PackedScene]([ExtResource("4_mrjmj"), ExtResource("5_bds0f"), ExtResource("6_umiks"), ExtResource("7_w6kkq")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
