@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://co6tueynsyh3a"]
+
+[ext_resource type="Texture2D" uid="uid://cb05lpmte6onp" path="res://Assets/knife9-sprite.png" id="1_ajqq6"]
+[ext_resource type="Script" path="res://Scripts/knife.gd" id="2_rtgxn"]
+[ext_resource type="Script" path="res://Components/damagebox_component.gd" id="3_u370e"]
+[ext_resource type="Script" path="res://Components/damage_component.gd" id="4_pvpu8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f24wh"]
+radius = 16.0
+height = 264.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7vfhl"]
+height = 96.0
+
+[node name="Knife" type="Sprite2D"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_ajqq6")
+script = ExtResource("2_rtgxn")
+speed = 250.0
+
+[node name="DamageboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("damage_component")]
+script = ExtResource("3_u370e")
+damage_component = NodePath("../DamageComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageboxComponent"]
+position = Vector2(0, -16)
+shape = SubResource("CapsuleShape2D_f24wh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DamageboxComponent"]
+position = Vector2(0, 24)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7vfhl")
+
+[node name="DamageComponent" type="Node" parent="."]
+script = ExtResource("4_pvpu8")
+
+[connection signal="area_entered" from="DamageboxComponent" to="." method="_on_damagebox_entered"]

@@ -17,6 +17,8 @@ height = 120.0
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_cqjgk")
 script = ExtResource("2_lwx4y")
+speed = 225.0
+damage = 20.0
 
 [node name="DamageboxComponent" parent="." node_paths=PackedStringArray("damage_component") instance=ExtResource("3_3v3ym")]
 damage_component = NodePath("../DamageComponent")

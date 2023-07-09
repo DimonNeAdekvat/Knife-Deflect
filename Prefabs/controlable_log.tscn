@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg358owmjt0nd"]
+[gd_scene load_steps=6 format=3 uid="uid://bg358owmjt0nd"]
 
 [ext_resource type="Script" path="res://Scripts/ControlableLog.gd" id="1_6f3ik"]
-[ext_resource type="PackedScene" uid="uid://c117y2p32fcoe" path="res://Prefabs/axe.tscn" id="2_ghmx2"]
 [ext_resource type="Texture2D" uid="uid://c3tsxu6qgpmck" path="res://Assets/boss-Orange.png" id="2_kia1x"]
 [ext_resource type="Script" path="res://Components/health_component.gd" id="3_w1wge"]
 [ext_resource type="Script" path="res://Components/hitbox_component.gd" id="4_48ujn"]
@@ -14,13 +13,6 @@ motion_mode = 1
 script = ExtResource("1_6f3ik")
 spin_velocity = 160.0
 angular_damp = 20.0
-
-[node name="Axe" parent="." instance=ExtResource("2_ghmx2")]
-position = Vector2(3, -113)
-rotation = 1.74533
-
-[node name="DamageboxComponent" parent="Axe" index="0"]
-monitoring = false
 
 [node name="Boss-orange" type="Sprite2D" parent="."]
 z_index = 1
@@ -42,5 +34,3 @@ health = NodePath("../HealthComponent")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 z_index = 1
 shape = SubResource("CircleShape2D_revv6")
-
-[editable path="Axe"]
