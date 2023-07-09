@@ -16,7 +16,7 @@ grow_vertical = 2
 theme = ExtResource("1_jqpsc")
 script = ExtResource("1_mutc8")
 go_back = ExtResource("2_g3jyf")
-levels = Array[PackedScene]([ExtResource("3_6kslp")])
+levels = Array[PackedScene]([ExtResource("3_6kslp"), null, null, null, null, null, null])
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
