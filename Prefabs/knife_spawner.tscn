@@ -4,6 +4,12 @@
 
 [node name="KnifeSpawner" type="Node2D"]
 script = ExtResource("1_lu8cg")
+knives = null
+positions = null
+types = null
+warning_scene = null
+distance = null
+spawn_time = null
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5

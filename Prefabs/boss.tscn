@@ -1,0 +1,108 @@
+[gd_scene load_steps=14 format=3 uid="uid://mdgwkekc5qg1"]
+
+[ext_resource type="Script" path="res://Scripts/boss.gd" id="1_i74tx"]
+[ext_resource type="Texture2D" uid="uid://b4tyue7fur206" path="res://Assets/log-errors.png" id="2_hcp03"]
+[ext_resource type="PackedScene" uid="uid://bbs35tb06o5t4" path="res://Prefabs/knife11.tscn" id="3_i2cq6"]
+[ext_resource type="PackedScene" uid="uid://tqd4r078786i" path="res://Prefabs/knife10.tscn" id="4_53dcb"]
+[ext_resource type="PackedScene" uid="uid://co6tueynsyh3a" path="res://Prefabs/knife9.tscn" id="5_ywuyg"]
+[ext_resource type="PackedScene" uid="uid://dlref010ihaa" path="res://Prefabs/knife8.tscn" id="6_im2ws"]
+[ext_resource type="PackedScene" uid="uid://7ojmonacclix" path="res://Prefabs/knife7.tscn" id="7_gqn21"]
+[ext_resource type="PackedScene" uid="uid://drtqj5smegp0g" path="res://Prefabs/knife6.tscn" id="8_ol0oa"]
+[ext_resource type="PackedScene" uid="uid://dkqsu5lq8vbdp" path="res://Prefabs/knife5.tscn" id="9_t8kxv"]
+[ext_resource type="PackedScene" uid="uid://c2csg304hwj0h" path="res://Prefabs/knife4.tscn" id="10_b18dd"]
+[ext_resource type="PackedScene" uid="uid://dcprufup3r8po" path="res://Prefabs/knife3.tscn" id="11_6rc7v"]
+[ext_resource type="PackedScene" uid="uid://cd33nwuvka2iv" path="res://Prefabs/knife2.tscn" id="12_1ykio"]
+[ext_resource type="PackedScene" uid="uid://dpfvaog00h344" path="res://Prefabs/knife1.tscn" id="13_y2q74"]
+
+[node name="Boss" type="Node2D"]
+script = ExtResource("1_i74tx")
+
+[node name="Boss_sprite" type="Sprite2D" parent="."]
+position = Vector2(400, 0)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_hcp03")
+
+[node name="Knife" parent="Boss_sprite" instance=ExtResource("3_i2cq6")]
+z_index = -1
+position = Vector2(0, -320)
+scale = Vector2(0.625, 0.625)
+speed = 0.0
+
+[node name="Knife2" parent="Boss_sprite" instance=ExtResource("4_53dcb")]
+z_index = -1
+position = Vector2(227.5, -177.5)
+rotation = 0.927984
+scale = Vector2(0.625, 0.625)
+speed = 0.0
+
+[node name="Knife3" parent="Boss_sprite" instance=ExtResource("5_ywuyg")]
+z_index = -1
+position = Vector2(135, 247.5)
+rotation = 2.61655
+scale = Vector2(0.625, 0.625)
+speed = 0.0
+
+[node name="Knife4" parent="Boss_sprite" instance=ExtResource("6_im2ws")]
+z_index = -1
+position = Vector2(312.5, 0)
+rotation = 1.56836
+scale = Vector2(0.625, 0.625)
+speed = 0.0
+
+[node name="Knife5" parent="Boss_sprite" instance=ExtResource("7_gqn21")]
+z_index = -1
+position = Vector2(252.5, 150)
+rotation = 2.08642
+scale = Vector2(0.625, 0.625)
+speed = 0.0
+
+[node name="Knife6" parent="Boss_sprite" instance=ExtResource("8_ol0oa")]
+z_index = -1
+position = Vector2(-245, 157.5)
+rotation = -2.14221
+scale = Vector2(0.625, 0.625)
+speed = 0.0
+
+[node name="Knife7" parent="Boss_sprite" instance=ExtResource("9_t8kxv")]
+z_index = -1
+position = Vector2(-2.5, 317.5)
+rotation = -3.14117
+scale = Vector2(0.625, 0.625)
+speed = 0.0
+
+[node name="Knife8" parent="Boss_sprite" instance=ExtResource("10_b18dd")]
+z_index = -1
+position = Vector2(-237.5, -170)
+rotation = -0.983142
+scale = Vector2(0.625, 0.625)
+speed = 0.0
+
+[node name="Knife9" parent="Boss_sprite" instance=ExtResource("11_6rc7v")]
+z_index = -1
+position = Vector2(-310, 2.50004)
+rotation = -1.55828
+scale = Vector2(0.625, 0.625)
+speed = 0.0
+
+[node name="Knife10" parent="Boss_sprite" instance=ExtResource("12_1ykio")]
+z_index = -1
+position = Vector2(107.5, -267.5)
+rotation = 0.39998
+scale = Vector2(0.625, 0.625)
+speed = 0.0
+
+[node name="Knife11" parent="Boss_sprite" instance=ExtResource("13_y2q74")]
+z_index = -1
+position = Vector2(-110, -260)
+rotation = -0.462607
+scale = Vector2(0.625, 0.625)
+speed = 0.0
+
+[node name="Knife12" parent="Boss_sprite" instance=ExtResource("13_y2q74")]
+z_index = -1
+position = Vector2(-137.5, 257.5)
+rotation = -2.6657
+scale = Vector2(0.625, 0.625)
+speed = 0.0
+
+[node name="Timer" type="Timer" parent="."]
