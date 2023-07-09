@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bg358owmjt0nd"]
 
 [ext_resource type="Script" path="res://Scripts/ControlableLog.gd" id="1_6f3ik"]
-[ext_resource type="Texture2D" uid="uid://c3tsxu6qgpmck" path="res://Assets/boss-Orange.png" id="2_kia1x"]
+[ext_resource type="Texture2D" uid="uid://d2jvcl4gk5m6q" path="res://Assets/log-basic.png" id="2_an24g"]
 [ext_resource type="Script" path="res://Components/health_component.gd" id="3_w1wge"]
 [ext_resource type="Script" path="res://Components/hitbox_component.gd" id="4_48ujn"]
 
@@ -16,8 +16,8 @@ angular_damp = 20.0
 
 [node name="Boss-orange" type="Sprite2D" parent="."]
 z_index = 1
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_kia1x")
+scale = Vector2(0.39, 0.39)
+texture = ExtResource("2_an24g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
