@@ -10,13 +10,14 @@ extends Node2D
 @export var warning_scene: PackedScene = preload("res://Prefabs/warning.tscn")
 @export var distance: float = 600.0
 
-@onready var cur_index : int
-
 signal victory
+signal score_changed(score : int)
+
+var cur_index : int = 0
+var score : int = 0
 
 func new_game():
 	$MobTimer.start()
-	cur_index = 0
 
 func _ready():
 	new_game()
@@ -28,6 +29,10 @@ func _process(delta):
 
 func _on_mob_timer_timeout():
 	spawn_on_circle()
+	
+func on_score_increase():
+	score += 1
+	emit_signal("score_changed", score)
 
 func spawn_on_circle():
 	var rand: float = (randf() * (positions[cur_index].y - positions[cur_index].x) + positions[cur_index].x) * PI
@@ -36,6 +41,7 @@ func spawn_on_circle():
 	var warning : Node2D = warning_scene.instantiate()
 	attack.position = dir * distance
 	attack.rotation = rand - PI * 0.5
+	attack.connect("increase_score", on_score_increase)
 	add_child(attack)
 	warning.max_dist = distance
 	attack.add_child(warning)
