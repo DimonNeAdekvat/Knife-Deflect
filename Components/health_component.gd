@@ -28,3 +28,7 @@ func damage(ammount : float):
 
 func heal(ammount : float):
 	cur_health += ammount
+
+func refresh():
+	emit_signal("health_changed_a",cur_health)
+	emit_signal("health_changed_r",cur_health/max_health)
