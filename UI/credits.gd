@@ -27,7 +27,7 @@ func _on_G_github_pressed():
 
 
 func _on_C_itch_pressed():
-	pass # Replace with function body.
+	OS.shell_open("https://colamen.itch.io/")
 
 
 func _on_C_github_pressed():

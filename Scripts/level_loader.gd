@@ -22,7 +22,6 @@ func load_indx(index : int):
 		load_path("res://UI/main_menu.tscn")
 	path += "level" + var_to_str(index) + ".tscn"
 	if !FileAccess.file_exists(path):
-		print("level does not exist")
-		return
+		load_path("res://UI/main_menu.tscn")
 	state.curr_level = index
 	load_path(path)

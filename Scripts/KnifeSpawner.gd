@@ -10,6 +10,7 @@ extends Node2D
 @export var warning_scene: PackedScene = preload("res://Prefabs/warning.tscn")
 @export var distance: float = 600.0
 @export var spawn_time: float = 3.0
+@export var endless : bool = false
 
 signal victory
 signal score_changed(score : int)
@@ -25,6 +26,8 @@ func _ready():
 	new_game()
 	
 func _physics_process(_delta):
+	if endless :
+		return
 	if(cur_index <= positions.size() - 1):
 		return
 	if(get_child_count() == 1):
@@ -39,20 +42,33 @@ func on_score_increase():
 	emit_signal("score_changed", score)
 
 func spawn_on_circle():
-	var rand: float = (randf() * (positions[cur_index].y - positions[cur_index].x) + positions[cur_index].x) * PI
-	var dir: Vector2 = Vector2(cos(rand), sin(rand))
-	var attack : Node2D = knives[types[cur_index]].instantiate()
-	if(attack is EmptyKnife):
+	if !endless :
+		var rand: float = (randf() * (positions[cur_index].y - positions[cur_index].x) + positions[cur_index].x) * PI
+		var dir: Vector2 = Vector2(cos(rand), sin(rand))
+		var attack : Node2D = knives[types[cur_index]].instantiate()
+		if(attack is EmptyKnife):
+			cur_index += 1
+			return
+		var warning : Node2D = warning_scene.instantiate()
+		attack.position = dir * distance
+		attack.rotation = rand - PI * 0.5
+		attack.connect("increase_score", on_score_increase)
+		add_child(attack)
+		warning.max_dist = distance
+		attack.add_child(warning)
+		if(cur_index == positions.size() - 1):
+			$MobTimer.stop()
 		cur_index += 1
-		return
-	var warning : Node2D = warning_scene.instantiate()
-	attack.position = dir * distance
-	attack.rotation = rand - PI * 0.5
-	attack.connect("increase_score", on_score_increase)
-	add_child(attack)
-	warning.max_dist = distance
-	attack.add_child(warning)
-	if(cur_index == positions.size() - 1):
-		$MobTimer.stop()
-	cur_index += 1
-	
+	else:
+		var rand : float = randf()*2*PI
+		var dir : Vector2 = Vector2(cos(rand), sin(rand))
+		var attack : Node2D = knives[randi()%knives.size()].instantiate()
+		if(attack is EmptyKnife):
+			return
+		var warning : Node2D = warning_scene.instantiate()
+		attack.position = dir * distance
+		attack.rotation = rand - PI * 0.5
+		attack.connect("increase_score", on_score_increase)
+		add_child(attack)
+		warning.max_dist = distance
+		attack.add_child(warning)
