@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://b5sam0xashck5" path="res://UI/ui_default.tres" id="1_jqpsc"]
 [ext_resource type="Script" path="res://UI/levels.gd" id="1_mutc8"]
 [ext_resource type="PackedScene" uid="uid://dkri62q20y46i" path="res://UI/main_menu.tscn" id="2_g3jyf"]
-[ext_resource type="PackedScene" uid="uid://bmbo0fggcsr5e" path="res://UI/level1.tscn" id="4_mrjmj"]
+[ext_resource type="PackedScene" uid="uid://bmbo0fggcsr5e" path="res://Levels/level1.tscn" id="4_mrjmj"]
 [ext_resource type="Texture2D" uid="uid://c311p8qlyy43p" path="res://Assets/background.png" id="5_2lo4r"]
 
 [node name="Levels" type="Control"]
@@ -16,9 +16,7 @@ grow_vertical = 2
 theme = ExtResource("1_jqpsc")
 script = ExtResource("1_mutc8")
 go_back = ExtResource("2_g3jyf")
-
 levels = Array[PackedScene]([ExtResource("4_mrjmj")])
-
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

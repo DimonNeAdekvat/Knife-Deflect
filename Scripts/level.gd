@@ -7,6 +7,8 @@ signal health_changed(health : float)
 # Called when the node enters the scene tree for the first time.
 @onready var ui_scene : PackedScene = preload("res://UI/in_game_ui.tscn")
 
+var canWin : bool = true
+
 func _ready():
 	$ControlableLog/HealthComponent.connect("health_changed_r", on_health_changed)
 	$ControlableLog/HealthComponent.connect("death", on_game_over)
@@ -23,9 +25,12 @@ func on_score_changed(score : int):
 	emit_signal("score_changed", score)
 
 func on_victory():
+	if(!canWin):
+		return
 	emit_signal("victory")
 
 func on_game_over():
+	canWin = false
 	emit_signal("game_over")
 
 func connect_ui():

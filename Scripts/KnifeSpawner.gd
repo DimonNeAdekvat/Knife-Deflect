@@ -9,6 +9,7 @@ extends Node2D
 #@export var knife_scene: PackedScene = preload("res://Prefabs/knife.tscn")
 @export var warning_scene: PackedScene = preload("res://Prefabs/warning.tscn")
 @export var distance: float = 600.0
+@export var spawn_time: float = 3.0
 
 signal victory
 signal score_changed(score : int)
@@ -17,11 +18,18 @@ var cur_index : int = 0
 var score : int = 0
 
 func new_game():
+	$MobTimer.wait_time = spawn_time
 	$MobTimer.start()
 
 func _ready():
 	new_game()
 	
+func _physics_process(_delta):
+	if(cur_index <= positions.size() - 1):
+		return
+	if(get_child_count() == 1):
+		emit_signal("victory")
+		set_physics_process(false)
 
 func _on_mob_timer_timeout():
 	spawn_on_circle()
@@ -43,6 +51,5 @@ func spawn_on_circle():
 	attack.add_child(warning)
 	if(cur_index == positions.size() - 1):
 		$MobTimer.stop()
-		emit_signal("victory")
 	cur_index += 1
 	

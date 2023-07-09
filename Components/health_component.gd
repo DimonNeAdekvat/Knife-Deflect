@@ -21,7 +21,7 @@ signal health_changed_r(health : float)
 			cur_health = 0.0
 			emit_signal("death")
 		emit_signal("health_changed_a",cur_health)
-		emit_signal("health_changed_a",cur_health/max_health)
+		emit_signal("health_changed_r",cur_health/max_health)
 
 func damage(ammount : float):
 	cur_health -= ammount

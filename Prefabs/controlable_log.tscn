@@ -34,3 +34,5 @@ health = NodePath("../HealthComponent")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 z_index = 1
 shape = SubResource("CircleShape2D_revv6")
+
+[connection signal="area_entered" from="HitboxComponent" to="HitboxComponent" method="_on_area_entered"]
