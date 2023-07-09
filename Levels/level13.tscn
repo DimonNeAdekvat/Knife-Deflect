@@ -44,6 +44,8 @@ monitoring = false
 knives = Array[PackedScene]([ExtResource("6_hwao1"), ExtResource("7_ngccy"), ExtResource("8_opxug"), ExtResource("9_uwhr6"), ExtResource("10_upgdk"), ExtResource("11_s85o4"), ExtResource("12_075lm"), ExtResource("13_ul74u"), ExtResource("14_87i81"), ExtResource("15_ufp4f"), ExtResource("16_q4qty"), ExtResource("17_qb0v1")])
 positions = Array[Vector2]([Vector2(0.5, 0.5)])
 types = Array[int]([0])
+warning_scene = null
+distance = null
 spawn_time = 20.0
 
 [editable path="ControlableLog"]

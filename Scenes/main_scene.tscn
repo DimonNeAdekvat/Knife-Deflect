@@ -14,3 +14,9 @@ angular_damp = 40.0
 position = Vector2(0, 120)
 
 [node name="KnifeSpawner" parent="." instance=ExtResource("4_x6dgc")]
+knives = null
+positions = null
+types = null
+warning_scene = null
+distance = null
+spawn_time = null

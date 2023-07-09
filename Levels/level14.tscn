@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://6icibvpfj3k6"]
+
+[ext_resource type="Script" path="res://Scripts/level_boss.gd" id="1_73q53"]
+[ext_resource type="Texture2D" uid="uid://c311p8qlyy43p" path="res://Assets/background.png" id="2_udl4c"]
+[ext_resource type="PackedScene" uid="uid://bg358owmjt0nd" path="res://Prefabs/controlable_log.tscn" id="3_yrff6"]
+[ext_resource type="PackedScene" uid="uid://c117y2p32fcoe" path="res://Prefabs/axe.tscn" id="4_sb48g"]
+[ext_resource type="PackedScene" uid="uid://mdgwkekc5qg1" path="res://Prefabs/boss.tscn" id="5_fdea4"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_73q53")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(1.905, 1.905)
+texture = ExtResource("2_udl4c")
+
+[node name="ControlableLog" parent="." instance=ExtResource("3_yrff6")]
+
+[node name="HealthComponent" parent="ControlableLog" index="2"]
+max_health = 10.0
+cur_health = 10.0
+
+[node name="Axe" parent="ControlableLog" instance=ExtResource("4_sb48g")]
+position = Vector2(3, -113)
+rotation = 1.74533
+
+[node name="DamageboxComponent" parent="ControlableLog/Axe" index="0"]
+monitoring = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Boss" parent="." instance=ExtResource("5_fdea4")]
+z_index = 1
+
+[editable path="ControlableLog"]
+[editable path="ControlableLog/Axe"]
