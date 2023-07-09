@@ -32,7 +32,8 @@ func _on_damagebox_entered(area):
 			# + очки
 
 func rebase(area : Node2D):
-	$DamageboxComponent.set_deferred("monitoring", false)
+	#$DamageboxComponent.set_deferred("monitoring", false)
+	$DamageboxComponent.monitoring = false
 	set_process(false)
 	var parent = area.get_parent()
 	reparent(parent,true)

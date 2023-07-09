@@ -22,12 +22,12 @@ func set_score(val : int) :
 	%Score.text = var_to_str(val)
 
 func on_victory():
-	$UI.hide()
+	%HBoxControl.hide()
 	$VI.show()
 	state.progression = max(state.progression,state.curr_level)
 
 func on_game_over():
-	$UI.hide()
+	%HBoxControl.hide()
 	$GO.show()
 
 func _on_left_button_down():

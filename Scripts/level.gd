@@ -15,12 +15,12 @@ func _ready():
 	$KnifeSpawner.connect("score_changed", on_score_changed)
 	$KnifeSpawner.connect("victory", on_victory)
 	connect_ui()
+	$ControlableLog/HealthComponent.refresh()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func on_health_changed(health : float):
 	emit_signal("health_changed", health)
-
 func on_score_changed(score : int):
 	emit_signal("score_changed", score)
 

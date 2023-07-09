@@ -42,6 +42,9 @@ func spawn_on_circle():
 	var rand: float = (randf() * (positions[cur_index].y - positions[cur_index].x) + positions[cur_index].x) * PI
 	var dir: Vector2 = Vector2(cos(rand), sin(rand))
 	var attack : Node2D = knives[types[cur_index]].instantiate()
+	if(attack is Empty):
+		cur_index += 1
+		return
 	var warning : Node2D = warning_scene.instantiate()
 	attack.position = dir * distance
 	attack.rotation = rand - PI * 0.5

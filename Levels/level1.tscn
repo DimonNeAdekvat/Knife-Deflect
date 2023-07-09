@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmbo0fggcsr5e"]
+[gd_scene load_steps=18 format=3 uid="uid://bmbo0fggcsr5e"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_ldhex"]
 [ext_resource type="Texture2D" uid="uid://c311p8qlyy43p" path="res://Assets/background.png" id="1_ttw4w"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://tqd4r078786i" path="res://Prefabs/knife10.tscn" id="6_qri2c"]
 [ext_resource type="PackedScene" uid="uid://dpfvaog00h344" path="res://Prefabs/knife1.tscn" id="6_wmavp"]
 [ext_resource type="PackedScene" uid="uid://co6tueynsyh3a" path="res://Prefabs/knife9.tscn" id="6_y8onp"]
+[ext_resource type="PackedScene" uid="uid://k73wsgc21fiv" path="res://Prefabs/knife_empty.tscn" id="17_kniei"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ldhex")
@@ -40,7 +41,7 @@ monitoring = false
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="KnifeSpawner" parent="." instance=ExtResource("3_7qehu")]
-knives = Array[PackedScene]([ExtResource("6_wmavp"), ExtResource("4_pkscq"), ExtResource("6_emabd"), ExtResource("6_07jcx"), ExtResource("6_iiakj"), ExtResource("6_4i1hi"), ExtResource("6_c2d6i"), ExtResource("6_bpaxc"), ExtResource("6_y8onp"), ExtResource("6_qri2c"), ExtResource("6_o0n02")])
+knives = Array[PackedScene]([ExtResource("6_wmavp"), ExtResource("4_pkscq"), ExtResource("6_emabd"), ExtResource("6_07jcx"), ExtResource("6_iiakj"), ExtResource("6_4i1hi"), ExtResource("6_c2d6i"), ExtResource("6_bpaxc"), ExtResource("6_y8onp"), ExtResource("6_qri2c"), ExtResource("6_o0n02"), ExtResource("17_kniei")])
 positions = Array[Vector2]([Vector2(0.5, 0.5)])
 types = Array[int]([0])
 spawn_time = 2.0

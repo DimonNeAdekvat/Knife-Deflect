@@ -9,5 +9,4 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_nu04h")
 offset = Vector2(0, -128)
 script = ExtResource("2_yw8uf")
-show_rad = 340.0
 color_s = Color(1, 1, 0, 1)
