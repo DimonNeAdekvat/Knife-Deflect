@@ -16,9 +16,7 @@ var angular_velocity : float = 0.0 :
 func _physics_process(delta):
 	rotation_degrees += angular_velocity * delta
 	angular_velocity -= signf(angular_velocity) * delta * angular_damp
-	if Input.is_action_pressed("on_click"):
-		spin(get_global_mouse_position().x, delta)
-	elif Input.is_action_pressed("spin_left"):
+	if Input.is_action_pressed("spin_left"):
 		spin(-1.0, delta)
 	elif Input.is_action_pressed("spin_right"):
 		spin(1.0, delta)

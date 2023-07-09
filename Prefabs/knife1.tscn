@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dpfvaog00h344"]
 
-[ext_resource type="Texture2D" uid="uid://dot48u7d4nui" path="res://Assets/weapon_sprite.png" id="1_mpagp"]
-[ext_resource type="Script" path="res://Components/damagebox_component.gd" id="2_0uex3"]
-[ext_resource type="Script" path="res://Scripts/knife.gd" id="2_iy02v"]
-[ext_resource type="Script" path="res://Components/damage_component.gd" id="3_t471e"]
+[ext_resource type="Texture2D" uid="uid://dnu4a45s3wtjw" path="res://Assets/knife1-sprite.png" id="1_30liv"]
+[ext_resource type="Script" path="res://Scripts/knife.gd" id="2_vvrhb"]
+[ext_resource type="Script" path="res://Components/damagebox_component.gd" id="3_n86n5"]
+[ext_resource type="Script" path="res://Components/damage_component.gd" id="4_8ki6f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f24wh"]
 radius = 16.0
@@ -11,17 +11,17 @@ height = 248.0
 
 [node name="Knife" type="Sprite2D"]
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_mpagp")
-script = ExtResource("2_iy02v")
+texture = ExtResource("1_30liv")
+script = ExtResource("2_vvrhb")
 
 [node name="DamageboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("damage_component")]
-script = ExtResource("2_0uex3")
+script = ExtResource("3_n86n5")
 damage_component = NodePath("../DamageComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageboxComponent"]
 shape = SubResource("CapsuleShape2D_f24wh")
 
 [node name="DamageComponent" type="Node" parent="."]
-script = ExtResource("3_t471e")
+script = ExtResource("4_8ki6f")
 
 [connection signal="area_entered" from="DamageboxComponent" to="." method="_on_damagebox_entered"]

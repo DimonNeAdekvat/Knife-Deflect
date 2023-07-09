@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://c117y2p32fcoe"]
+
+[ext_resource type="Texture2D" uid="uid://yajw48meugb" path="res://Assets/axe.png" id="1_041oa"]
+[ext_resource type="Script" path="res://Components/damagebox_component.gd" id="2_nk33a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nrwls"]
+height = 366.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ndb2"]
+radius = 45.0
+height = 118.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_620oc"]
+radius = 19.0
+height = 60.0
+
+[node name="Axe" type="Sprite2D"]
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("1_041oa")
+
+[node name="DamageboxComponent" type="Area2D" parent="."]
+script = ExtResource("2_nk33a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageboxComponent"]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_nrwls")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DamageboxComponent"]
+position = Vector2(30, -106)
+shape = SubResource("CapsuleShape2D_8ndb2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DamageboxComponent"]
+position = Vector2(-36, -105)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_620oc")
