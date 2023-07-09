@@ -6,14 +6,27 @@ extends Control
 
 var offset : int = 0
 var loader = LevelLoader.new()
+var state : GameStateRes
+var enable_all : float = 3.0
+
 
 func _ready():
-	setup_buttons()
 	add_child(loader)
+	state = get_tree().root.get_node("GameState").state
+	state.curr_level = -1
+	setup_buttons()
 
-func _process(_delta):
+func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		_to_main()
+	
+	if enable_all < 0.0 :
+		return
+	
+	if Input.is_action_pressed("spin_left"):
+		enable_all -= delta
+		if enable_all < 0.0 :
+			setup_buttons()
 
 var icon_prev = preload("res://feathericons/arrow-left.svg")
 var icon_next = preload("res://feathericons/arrow-right.svg")
@@ -24,7 +37,7 @@ func setup_buttons():
 	for child in grid.get_children() :
 		child.queue_free()
 	
-	var levels_count = len(levels)
+	var levels_count = DirAccess.get_files_at("res://Levels/").size()
 	var is_first_page : bool = offset == 0
 	var has_next_page : bool = (levels_count - offset) > 14 
 	#setup baack button
@@ -53,6 +66,7 @@ func setup_buttons():
 			new_node = Button.new()
 			new_node.text = var_to_str(curr_indx + 1)
 			new_node.pressed.connect(_change_scene.bind(curr_indx))
+			new_node.disabled = curr_indx > state.progression && enable_all > 0.0
 		new_node.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		new_node.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		grid.add_child(new_node)
@@ -83,8 +97,4 @@ func _next_page():
 	setup_buttons()
 
 func _change_scene(index : int):
-	var level = levels[index]
-	if level != null :
-		loader.load_pack(level)
-	else :
-		print("scene empty")
+	loader.load_indx(index + 1)

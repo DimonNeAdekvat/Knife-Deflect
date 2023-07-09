@@ -209,3 +209,4 @@ text = "Next
 [connection signal="pressed" from="GO/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/Home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="GO/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/Reload" to="." method="_on_reload_pressed"]
 [connection signal="pressed" from="VI/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="VI/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/Next" to="." method="_on_next_pressed"]

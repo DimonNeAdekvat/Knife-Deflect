@@ -3,10 +3,12 @@ class_name InGameUI
 
 @export var bg_texture : Texture2D = preload("res://Assets/background.png") 
 var loader = LevelLoader.new()
+var state : GameStateRes
 
 func _ready():
 	set_background(bg_texture,TextureRect.STRETCH_SCALE)
 	add_child(loader)
+	state = get_tree().root.get_node("GameState").state
 
 
 func set_background(texture : Texture2D,stretch : TextureRect.StretchMode):
@@ -22,6 +24,7 @@ func set_score(val : int) :
 func on_victory():
 	$UI.hide()
 	$VI.show()
+	state.progression = max(state.progression,state.curr_level)
 
 func on_game_over():
 	$UI.hide()
@@ -47,4 +50,7 @@ func _on_home_pressed():
 
 
 func _on_reload_pressed():
-	loader.load_path(get_tree().current_scene.scene_file_path)
+	loader.load_indx(state.curr_level)
+
+func _on_next_pressed():
+	loader.load_indx(state.curr_level + 1)
