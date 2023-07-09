@@ -9,8 +9,9 @@ var loader = LevelLoader.new()
 
 func _ready():
 	setup_buttons()
+	add_child(loader)
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		_to_main()
 
