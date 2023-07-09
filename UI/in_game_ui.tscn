@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcnd1i3ui1epk"]
+[gd_scene load_steps=11 format=3 uid="uid://bcnd1i3ui1epk"]
 
 [ext_resource type="Theme" uid="uid://b5sam0xashck5" path="res://UI/ui_default.tres" id="1_848jo"]
 [ext_resource type="Script" path="res://UI/in_game_ui.gd" id="1_ns4rp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ci7iyo5n5vhg6" path="res://feathericons/heart.svg" id="3_71dwm"]
 [ext_resource type="Texture2D" uid="uid://d3un5rmrk3v3u" path="res://feathericons/arrow-left.svg" id="4_k40wj"]
 [ext_resource type="Texture2D" uid="uid://bnva176obfdul" path="res://feathericons/arrow-right.svg" id="5_h53bb"]
+[ext_resource type="Texture2D" uid="uid://yxxwveow0ew7" path="res://feathericons/home.svg" id="7_ou4en"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_epc3i"]
 bg_color = Color(0.0980392, 0.172549, 0.223529, 1)
@@ -126,7 +127,85 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_8n6w2")
 
+[node name="GO" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="GO"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_848jo")
+
+[node name="PanelContainer" type="PanelContainer" parent="GO/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GO/MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GO/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Game over!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GO/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Home" type="Button" parent="GO/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("7_ou4en")
+icon_alignment = 1
+
+[node name="Reload" type="Button" parent="GO/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reload"
+
+[node name="VI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="VI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_848jo")
+
+[node name="PanelContainer" type="PanelContainer" parent="VI/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VI/MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VI/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "You Won!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VI/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Home" type="Button" parent="VI/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("7_ou4en")
+icon_alignment = 1
+
+[node name="Next" type="Button" parent="VI/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Next
+"
+
 [connection signal="button_down" from="UI/MarginContainer/VBoxContainer/HBoxControl/Left" to="." method="_on_left_button_down"]
 [connection signal="button_up" from="UI/MarginContainer/VBoxContainer/HBoxControl/Left" to="." method="_on_left_button_up"]
 [connection signal="button_down" from="UI/MarginContainer/VBoxContainer/HBoxControl/Right" to="." method="_on_right_button_down"]
 [connection signal="button_up" from="UI/MarginContainer/VBoxContainer/HBoxControl/Right" to="." method="_on_right_button_up"]
+[connection signal="pressed" from="GO/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="GO/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/Reload" to="." method="_on_reload_pressed"]
+[connection signal="pressed" from="VI/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/Home" to="." method="_on_home_pressed"]

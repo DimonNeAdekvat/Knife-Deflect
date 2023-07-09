@@ -5,6 +5,7 @@ extends Control
 @onready var grid = $MarginContainer/Grid
 
 var offset : int = 0
+var loader = LevelLoader.new()
 
 func _ready():
 	setup_buttons()
@@ -83,6 +84,6 @@ func _next_page():
 func _change_scene(index : int):
 	var level = levels[index]
 	if level != null :
-		get_tree().change_scene_to_packed(level)
+		loader.load_pack(level)
 	else :
 		print("scene empty")
