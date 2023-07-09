@@ -22,10 +22,6 @@ func new_game():
 func _ready():
 	new_game()
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func _on_mob_timer_timeout():
 	spawn_on_circle()

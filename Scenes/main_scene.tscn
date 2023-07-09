@@ -1,10 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://comi8lkcrf2qe"]
 
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_0irni"]
 [ext_resource type="PackedScene" uid="uid://bg358owmjt0nd" path="res://Prefabs/controlable_log.tscn" id="2_v0ojp"]
-[ext_resource type="PackedScene" uid="uid://bcnd1i3ui1epk" path="res://UI/in_game_ui.tscn" id="3_gut13"]
 [ext_resource type="PackedScene" uid="uid://37gimblvsp3a" path="res://Prefabs/knife_spawner.tscn" id="4_x6dgc"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_0irni")
 
 [node name="ControlableLog" parent="." instance=ExtResource("2_v0ojp")]
 angular_damp = 40.0
@@ -13,5 +14,3 @@ angular_damp = 40.0
 position = Vector2(0, 120)
 
 [node name="KnifeSpawner" parent="." instance=ExtResource("4_x6dgc")]
-
-[node name="GameUI" parent="." instance=ExtResource("3_gut13")]

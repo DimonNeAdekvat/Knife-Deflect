@@ -14,7 +14,6 @@ func _ready():
 	top_level = true
 	d_rect = get_viewport_rect()
 	d_rect.position = get_viewport_transform().inverse() * d_rect.position
-	var shrink = Vector2(texture.get_size().y,texture.get_size().y)
 	global_position = intersect(get_parent().rotation)
 	global_rotation = get_parent().global_rotation
 	dist_to_s = global_position.length_squared()

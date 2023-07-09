@@ -6,6 +6,7 @@ var loader = LevelLoader.new()
 
 func _ready():
 	set_background(bg_texture,TextureRect.STRETCH_SCALE)
+	add_child(loader)
 
 
 func set_background(texture : Texture2D,stretch : TextureRect.StretchMode):
