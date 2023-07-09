@@ -16,6 +16,7 @@
 
 [node name="Boss" type="Node2D"]
 script = ExtResource("1_i74tx")
+knives = Array[PackedScene]([ExtResource("13_y2q74"), ExtResource("12_1ykio"), ExtResource("11_6rc7v"), ExtResource("10_b18dd"), ExtResource("9_t8kxv"), ExtResource("8_ol0oa"), ExtResource("7_gqn21"), ExtResource("6_im2ws"), ExtResource("5_ywuyg"), ExtResource("4_53dcb"), ExtResource("3_i2cq6")])
 
 [node name="Boss_sprite" type="Sprite2D" parent="."]
 position = Vector2(400, 0)
@@ -106,3 +107,5 @@ scale = Vector2(0.625, 0.625)
 speed = 0.0
 
 [node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="spawn_on_circle"]

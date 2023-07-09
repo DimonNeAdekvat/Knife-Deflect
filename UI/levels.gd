@@ -37,7 +37,7 @@ func setup_buttons():
 	for child in grid.get_children() :
 		child.queue_free()
 	
-	var levels_count = DirAccess.get_files_at("res://Levels/").size()
+	var levels_count = DirAccess.get_files_at("res://Levels/").size() - 1
 	var is_first_page : bool = offset == 0
 	var has_next_page : bool = (levels_count - offset) > 14 
 	#setup baack button

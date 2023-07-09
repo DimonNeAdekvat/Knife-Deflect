@@ -43,7 +43,7 @@ script = ExtResource("3_in01b")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "This abomination was developed by"
+text = "This project was developed by"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -138,6 +138,11 @@ layout_mode = 2
 [node name="Home" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 icon = ExtResource("4_wtt31")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Snail's pace team"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/LinksD/itch" to="MarginContainer/VBoxContainer" method="_on_D_itch_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/LinksD/github" to="MarginContainer/VBoxContainer" method="_on_D_github_pressed"]

@@ -15,10 +15,6 @@ texture = ExtResource("2_udl4c")
 
 [node name="ControlableLog" parent="." instance=ExtResource("3_yrff6")]
 
-[node name="HealthComponent" parent="ControlableLog" index="2"]
-max_health = 10.0
-cur_health = 10.0
-
 [node name="Axe" parent="ControlableLog" instance=ExtResource("4_sb48g")]
 position = Vector2(3, -113)
 rotation = 1.74533

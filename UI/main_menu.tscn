@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkri62q20y46i"]
+[gd_scene load_steps=6 format=3 uid="uid://dkri62q20y46i"]
 
 [ext_resource type="Theme" uid="uid://b5sam0xashck5" path="res://UI/ui_default.tres" id="1_fq1b4"]
 [ext_resource type="Script" path="res://UI/GameMode.gd" id="1_m2oiw"]
-[ext_resource type="Script" path="res://UI/main_menu.gd" id="2_3f85p"]
 [ext_resource type="Texture2D" uid="uid://c311p8qlyy43p" path="res://Assets/background.png" id="2_4w1oh"]
 [ext_resource type="Texture2D" uid="uid://1fqrw7p5ywp" path="res://Assets/Main_logo.png" id="3_jk4e6"]
 [ext_resource type="Script" path="res://UI/SettingsPanel.gd" id="4_t5ung"]
@@ -15,7 +14,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fq1b4")
-script = ExtResource("2_3f85p")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -84,6 +82,7 @@ text = "Settings"
 layout_mode = 2
 text = "Credits"
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GameMode/VBoxContainer/Story" to="MarginContainer/VBoxContainer/GameMode" method="_on_story_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/GameMode/VBoxContainer/Levels" to="MarginContainer/VBoxContainer/GameMode" method="_on_levels_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/GameMode/VBoxContainer/Endless" to="MarginContainer/VBoxContainer/GameMode" method="_on_endless_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Settings/VBoxContainer/Settings" to="MarginContainer/VBoxContainer/Settings" method="_on_settings_pressed"]

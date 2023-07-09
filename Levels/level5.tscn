@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://byekrh67c7p31"]
+[gd_scene load_steps=19 format=3 uid="uid://byekrh67c7p31"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_pew3l"]
 [ext_resource type="Texture2D" uid="uid://c311p8qlyy43p" path="res://Assets/background.png" id="2_7c8bp"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://tqd4r078786i" path="res://Prefabs/knife10.tscn" id="15_l1ibt"]
 [ext_resource type="PackedScene" uid="uid://bbs35tb06o5t4" path="res://Prefabs/knife11.tscn" id="16_hpiq3"]
 [ext_resource type="PackedScene" uid="uid://k73wsgc21fiv" path="res://Prefabs/knife_empty.tscn" id="17_q1urx"]
+[ext_resource type="PackedScene" uid="uid://caukhrcn8ou56" path="res://Prefabs/warning.tscn" id="18_6kk50"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_pew3l")
@@ -44,6 +45,7 @@ monitoring = false
 knives = Array[PackedScene]([ExtResource("6_0s628"), ExtResource("7_bu7j6"), ExtResource("8_jhlsm"), ExtResource("9_qpiyu"), ExtResource("10_jrkqa"), ExtResource("11_27qko"), ExtResource("12_f54tc"), ExtResource("13_bcyqw"), ExtResource("14_jm628"), ExtResource("15_l1ibt"), ExtResource("16_hpiq3"), ExtResource("17_q1urx")])
 positions = Array[Vector2]([Vector2(-0.32, -0.32), Vector2(-0.138, -0.138), Vector2(0.044, 0.044), Vector2(0.226, 0.226), Vector2(0.408, 0.408), Vector2(0.59, 0.59), Vector2(0.772, 0.772), Vector2(0.954, 0.954), Vector2(1.136, 1.136), Vector2(1.318, 1.318), Vector2(1.5, 1.5)])
 types = Array[int]([5, 9, 8, 6, 1, 3, 0, 7, 4, 2, 10])
+warning_scene = ExtResource("18_6kk50")
 spawn_time = 0.13
 
 [editable path="ControlableLog"]
