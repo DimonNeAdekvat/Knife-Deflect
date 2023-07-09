@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://k73wsgc21fiv"]
+
+[ext_resource type="Script" path="res://KnifeEmpty.gd" id="1_ni0wr"]
+
+[node name="KnifeEmpty" type="Node2D"]
+script = ExtResource("1_ni0wr")
