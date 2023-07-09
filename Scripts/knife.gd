@@ -3,6 +3,8 @@ extends Sprite2D
 @export var speed : float = 150.0
 @export var the_chosen_one : bool = false
 
+signal increase_score
+
 var velocity : Vector2 = Vector2()
 
 func _ready():
@@ -20,9 +22,12 @@ func _process(delta):
 func _on_damagebox_entered(area):
 	if area is HitboxComponent : 
 		call_deferred("rebase", area)
+		# - жизни
 	elif area is DamageboxComponent:
 		if($DamageboxComponent.monitoring):
+			emit_signal("increase_score")
 			queue_free()
+			# + очки
 
 func rebase(area : Node2D):
 	$DamageboxComponent.set_deferred("monitoring", false)

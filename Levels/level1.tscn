@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmbo0fggcsr5e"]
+[gd_scene load_steps=6 format=3 uid="uid://bmbo0fggcsr5e"]
 
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_ldhex"]
 [ext_resource type="Texture2D" uid="uid://c311p8qlyy43p" path="res://Assets/background.png" id="1_ttw4w"]
 [ext_resource type="PackedScene" uid="uid://bg358owmjt0nd" path="res://Prefabs/controlable_log.tscn" id="2_s23q5"]
 [ext_resource type="PackedScene" uid="uid://37gimblvsp3a" path="res://Prefabs/knife_spawner.tscn" id="3_7qehu"]
 [ext_resource type="PackedScene" uid="uid://cd33nwuvka2iv" path="res://Prefabs/knife2.tscn" id="4_pkscq"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_ldhex")
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(1.905, 1.905)
