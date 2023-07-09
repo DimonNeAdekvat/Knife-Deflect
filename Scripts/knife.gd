@@ -2,6 +2,7 @@ extends Sprite2D
 
 @export var speed : float = 150.0
 @export var the_chosen_one : bool = false
+@export var damage : float = 10.0
 
 signal increase_score
 
@@ -14,6 +15,7 @@ func _ready():
 		velocity = Vector2.ZERO
 	else:
 		velocity = Vector2.UP.rotated(self.rotation) * speed
+		$DamageComponent.damage = damage
 
 
 func _process(delta):
