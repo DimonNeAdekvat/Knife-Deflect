@@ -1,0 +1,132 @@
+[gd_scene load_steps=10 format=3 uid="uid://bcnd1i3ui1epk"]
+
+[ext_resource type="Theme" uid="uid://b5sam0xashck5" path="res://UI/ui_default.tres" id="1_848jo"]
+[ext_resource type="Script" path="res://UI/in_game_ui.gd" id="1_ns4rp"]
+[ext_resource type="Texture2D" uid="uid://c311p8qlyy43p" path="res://Assets/background.png" id="2_8n6w2"]
+[ext_resource type="Texture2D" uid="uid://ci7iyo5n5vhg6" path="res://feathericons/heart.svg" id="3_71dwm"]
+[ext_resource type="Texture2D" uid="uid://d3un5rmrk3v3u" path="res://feathericons/arrow-left.svg" id="4_k40wj"]
+[ext_resource type="Texture2D" uid="uid://bnva176obfdul" path="res://feathericons/arrow-right.svg" id="5_h53bb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_epc3i"]
+bg_color = Color(0.0980392, 0.172549, 0.223529, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erswk"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.74902, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="Theme" id="Theme_cm68w"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_epc3i")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_erswk")
+
+[node name="GameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ns4rp")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_848jo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxHealth" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Heart" type="TextureRect" parent="UI/MarginContainer/VBoxContainer/HBoxHealth"]
+layout_mode = 2
+texture = ExtResource("3_71dwm")
+
+[node name="Health" type="ProgressBar" parent="UI/MarginContainer/VBoxContainer/HBoxHealth"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = SubResource("Theme_cm68w")
+value = 100.0
+fill_mode = 1
+show_percentage = false
+
+[node name="HBoxScore" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/MarginContainer/VBoxContainer/HBoxScore"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Score:  "
+
+[node name="Score" type="Label" parent="UI/MarginContainer/VBoxContainer/HBoxScore"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="Control2" type="Control" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="HBoxControl" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Left" type="Button" parent="UI/MarginContainer/VBoxContainer/HBoxControl"]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("4_k40wj")
+icon_alignment = 1
+
+[node name="Control" type="Control" parent="UI/MarginContainer/VBoxContainer/HBoxControl"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control2" type="Control" parent="UI/MarginContainer/VBoxContainer/HBoxControl"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Right" type="Button" parent="UI/MarginContainer/VBoxContainer/HBoxControl"]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("5_h53bb")
+icon_alignment = 1
+
+[node name="BG" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="BG"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8n6w2")
+
+[connection signal="button_down" from="UI/MarginContainer/VBoxContainer/HBoxControl/Left" to="." method="_on_left_button_down"]
+[connection signal="button_up" from="UI/MarginContainer/VBoxContainer/HBoxControl/Left" to="." method="_on_left_button_up"]
+[connection signal="button_down" from="UI/MarginContainer/VBoxContainer/HBoxControl/Right" to="." method="_on_right_button_down"]
+[connection signal="button_up" from="UI/MarginContainer/VBoxContainer/HBoxControl/Right" to="." method="_on_right_button_up"]
