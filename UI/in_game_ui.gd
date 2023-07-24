@@ -25,10 +25,16 @@ func on_victory():
 	%HBoxControl.hide()
 	$VI.show()
 	state.progression = max(state.progression,state.curr_level)
+	release_specific_buttons()
 
 func on_game_over():
 	%HBoxControl.hide()
 	$GO.show()
+	release_specific_buttons()
+
+func release_specific_buttons():
+	Input.action_release("spin_left")
+	Input.action_release("spin_right")
 
 func _on_left_button_down():
 	Input.action_press("spin_left")
